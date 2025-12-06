@@ -1,0 +1,83 @@
+<%- include('../Includes/begin.ejs') %>
+
+<%- include('../Includes/student_nav.ejs') %>
+
+<section id="content-wrapper">
+    <main role="main" class="pt-5 main">
+        <div class="main-content">
+            <div class="header pb-4 pb-sm-8 pt-5 pt-lg-8 d-flex align-items-center"
+                style="height: 100px; background-size: cover; background-position: center top;">
+            </div>
+            <div class="container-fluid mt--7">
+                <div class="row">
+                    <div class="col-xl-12 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">View Fee History</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="form-control-label mb-5"><b>NAME : </b>
+                                    <%= studentData.s_name %>
+                                </h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group focused">
+                                                <div class="table-responsive" style="overflow-x: hidden;">
+                                                    <table class="table table-striped">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">Fee ID</th>
+                                                                <th scope="col">Fee Type</th>
+                                                                <th scope="col">Receipt No</th>
+                                                                <th scope="col">Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% feesData.forEach(fee => { %>
+                                                            <tr>
+                                                                <td><%= fee.fee_id %></td>
+                                                                <td><%= fee.fee_type %></td>
+                                                                <td><%= fee.reciept_no %></td>
+                                                                <td><%= fee.date %></td>
+                                                            </tr>
+                                                            <% }) %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="card col-md-8">
+                                            <div class="card-header">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h3 class="mb-0">Fee Summary</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <p><b>Total Fees : </b> ₹<%= totalFeesToBePaid %></p>
+                                                <p><b>Paid: </b> ₹<%= paidFees %></p>
+                                                <p><b>Balance: </b> ₹<%= outstandingBalance %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+
+<%- include('../Includes/student_end.ejs') %>

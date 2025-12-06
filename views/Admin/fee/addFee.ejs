@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cms SJCE</title>
+  <link rel="stylesheet" href="../../CSS/admin-dashboard.css">
+</head>
+<body>
+  <%- include('../../Includes/begin.ejs') %>
+
+  <div class="container-fluid">
+    <div id="wrapper">
+      <%- include('../../Includes/admin_nav.ejs') %>
+
+      <section id="content-wrapper">
+        <main role="main" class="pt-5 main">
+          <div class="main-content">
+            <div class="header pb-4 pb-sm-8 pt-5 pt-lg-8 d-flex align-items-center"
+                style="height: 100px; background-size: cover; background-position: center top;">
+              <!-- <h1 class="mb-0" style="color: brown;">Add Fee</h1> -->
+            </div>
+            <div class="container-fluid mt--7">
+              <div class="row">
+                <div class="col-xl-12 order-xl-1">
+                  <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                      <div class="row align-items-center">
+                        <div class="col-8">
+                          <h3 class="mb-0" style="color: brown;">ADD FEE</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <%- include('../../Includes/messages') %>
+                      <% if (errors && errors.length > 0) { %>
+                        <ul class="alert alert-danger">
+                          <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                          <% }) %>
+                        </ul>
+                      <% } %>
+                      <form action="/admin/addFee" method="POST">
+                        <h6 class="heading-small text-muted mb-4">Fee Information</h6>
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="fee_type">Fee Type</label>
+                                <input type="text" id="fee_type" name="fee_type"
+                                    class="form-control form-control-alternative"
+                                    placeholder="Fee Type" required>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="receipt_no">Receipt Number</label>
+                                <input type="text" id="receipt_no" name="receipt_no"
+                                    class="form-control form-control-alternative"
+                                    placeholder="Receipt Number" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="date">Date</label>
+                                <input type="date" id="date" name="date"
+                                    class="form-control form-control-alternative" required>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="s_id">Student ID</label>
+                                <select id="s_id" name="s_id" class="form-control form-control-alternative" required>
+                                  <option value="">Select a student</option>
+                                  <% students.forEach(student => { %>
+                                    <option value="<%= student.s_id %>"><%= student.s_name %></option>
+                                  <% }) %>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="amount">Amount</label>
+                                <input type="number" id="amount" name="amount" step="0.01"
+                                    class="form-control form-control-alternative" placeholder="Amount" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4">
+                        <button type="submit" class="btn btn-primary btn-block">Add Fee</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+  </div>
+
+  <%- include('../../Includes/admin_end.ejs') %>
+</body>
+</html>

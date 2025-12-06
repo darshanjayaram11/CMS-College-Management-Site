@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Assignment</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include('../Includes/begin.ejs') %>
+    <%- include('../Includes/student_nav.ejs') %>
+
+    <section id="content-wrapper">
+        <main role="main" class="pt-5 main">
+            <div class="main-content">
+                <div class="header pb-4 pb-sm-8 pt-5 pt-lg-8 d-flex align-items-center"
+                    style="height: 100px; background-size: cover; background-position: center top;">
+                    <h1 class="text-white">Submit Assignment</h1>
+                </div>
+                <div class="container-fluid mt--7">
+                    <div class="row">
+                        <div class="col-xl-12 order-xl-1">
+                            <div class="card bg-secondary shadow">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h3 class="mb-0">Submit Assignment</h3>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <a href="/student/view-submissions" class="btn btn-sm btn-primary">View Submissions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form action="/student/submit-assignment" method="POST">
+                                        <div class="form-group focused">
+                                            <label for="asg_id" class="form-control-label">Select Assignment:</label>
+                                            <select name="asg_id" id="asg_id" class="form-control" required>
+                                                <% assignments.forEach(function(assignment) { %>
+                                                    <option value="<%= assignment.asg_id %>">
+                                                        <%= assignment.name %> - Deadline: <%= new Date(assignment.deadline).toLocaleDateString() %>
+                                                    </option>
+                                                <% }); %>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit Assignment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <%- include('../Includes/student_end.ejs') %>
+</body>
+</html>

@@ -38,7 +38,5 @@ We are using MySQL as our database. The main objective of this project is to use
 
 ![docs/architecture.png](docs/architecture.png)
 
-
-
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 

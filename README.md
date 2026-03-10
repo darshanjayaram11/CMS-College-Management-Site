@@ -10,7 +10,6 @@ There are several types of end users for the CMS. They are broadly divided as St
 - **STUDENT** who can update profile/ add solution to assignments and see marks/attendance.
 
 
-
 ### UseCase Diagram 
 
 This is the use case diagram which depicts the user’s interaction with the system. It also shows the relationship between the user and the different use cases in which the user is involved.

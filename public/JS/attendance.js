@@ -20,7 +20,6 @@ $(document).ready(function () {
       const isPresent = $(this).prop('checked');
     });
   });
-
   //   Mark all present button
   $('#mark-all-present').click(function () {
     $("input[type='checkbox']").each(function () {

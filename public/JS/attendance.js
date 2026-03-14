@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // Set default value of calendar as today's date
+  
   const today = new Date();
   const year = today.getFullYear().toString();
   let month = (today.getMonth() + 1).toString();
@@ -20,6 +21,7 @@ $(document).ready(function () {
       const isPresent = $(this).prop('checked');
     });
   });
+
   //   Mark all present button
   $('#mark-all-present').click(function () {
     $("input[type='checkbox']").each(function () {
@@ -28,7 +30,7 @@ $(document).ready(function () {
       $(this).prop('checked', true);
     });
   });
-  
+
   //   Mark all absent button
   $('#mark-all-absent').click(function () {
     $("input[type='checkbox']").each(function () {

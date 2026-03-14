@@ -28,6 +28,7 @@ $(document).ready(function () {
       $(this).prop('checked', true);
     });
   });
+  
   //   Mark all absent button
   $('#mark-all-absent').click(function () {
     $("input[type='checkbox']").each(function () {

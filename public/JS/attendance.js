@@ -36,7 +36,6 @@ $(document).ready(function () {
       $(this).prop('checked', false);
     });
   });
-
   // onClick checkbox toggle
   $("input[type='checkbox']").click(function () {
     const s_id = $(this).attr('id');

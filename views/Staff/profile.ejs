@@ -140,21 +140,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <% for(let i=0; i < classData.length; i++) { %>
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    <%= i + 1 %>
-                                                                </th>
-                                                                <td>
-                                                                    <%= classData[i].name %> (<%= classData[i].c_id %>)
-                                                                </td>
-                                                                <td>
-                                                                    <%= classData[i].semester %>
-                                                                </td>
-                                                                <td>
-                                                                    <%= user.dept_id %>-<%= classData[i].section %>
-                                                                </td>
-
+                                                          
                                                             </tr>
                                                             <% } %>
                                                         </tbody>

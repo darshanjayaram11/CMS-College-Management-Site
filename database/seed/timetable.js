@@ -64,7 +64,13 @@ async function generateTimeTable() {
             classData.c_id,
           ])
         )[0].dept_id;
-        
+        const section = classData.section - 1;
+        const row = departmentsData.indexOf(dept) * 3 + section;
+        console.log(dept, section, row);
+        let col = Math.floor(Math.random() * timeTable[row].length);
+        while (timeTable[row][col] !== undefined) {
+          col = Math.floor(Math.random() * timeTable[row].length);
+        }
         timeTable[row][col] = classData.class_id;
         await queryParamPromise('insert into time_table set ?', {
           c_id: classData.c_id,

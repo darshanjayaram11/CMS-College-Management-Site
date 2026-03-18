@@ -23,16 +23,7 @@ const zeroParamPromise = (sql) => {
   });
 };
 
-const queryParamPromise = (sql, queryParam) => {
-  return new Promise((resolve, reject) => {
-    db.query(sql, queryParam, (err, results) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(results);
-    });
-  });
-};
+
 const startTime = ['10:00:00', '11:00:00', '12:00:00', '13:00:00'];
 const endTime = ['11:00:00', '12:00:00', '13:00:00', '14:00:00'];
 // Currently implemented only for 1st semester, 2021 joining year students of all departments

@@ -98,7 +98,5 @@ router.post('/getCourse', requireAuth, controller.postRelevantCourse);
 router.get('/addCourse', requireAuth, controller.getAddCourse);
 router.post('/addCourse', requireAuth, controller.postAddCourse);
 // 6.4 Modify existing courses
-router.get('/settings/course/:id', requireAuth, controller.getCourseSettings);
-router.post('/settings/course', requireAuth, controller.postCourseSettings);
 
 module.exports = router;

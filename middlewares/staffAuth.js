@@ -9,6 +9,15 @@ const db = mysql.createConnection({
   database: 'cmsdbms',
 });
 
+const selectID = (id) => {
+  return new Promise((resolve, reject) => {
+    const sql1 = 'SELECT st_name FROM staff WHERE st_id = ?';
+    db.query(sql1, [id], (err, results) => {
+      if (err) return reject(err);
+      return resolve(results);
+    });
+  });
+};
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
